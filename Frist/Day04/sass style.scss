@@ -1,0 +1,81 @@
+@use "sass:color";
+$main-colour:#edbb99;
+
+body{
+  background-color:$main-colour;
+}
+
+h1{
+  color:color.scale($main-colour,$lightness:-20%)
+}
+
+p{
+  color:color.mix($main-colour,#f7dc6f,50%)
+}
+
+//Nesting
+.container{
+   background-color:color.scale($main-colour,$lightness:-30%);
+  
+  li{
+    font-size:20px;
+    padding:5px;
+  }
+  a{
+    font-family:sans-serif;
+  }
+}
+
+@mixin Mytheme($theme: DarkGray) {
+  background: $theme;
+  border-color:color.scale($theme,$lightness:-30%);
+  box-shadow: 0 0 1px rgba($theme, .25);
+  color: #fff;
+}
+
+.info {
+  @include Mytheme;
+}
+.alert {
+  @include Mytheme($theme: deeppink);
+}
+.success {
+  @include Mytheme($theme: DarkGreen);
+}
+
+@mixin msg-card($theme: #d2b4de, $w:150px,$h:70px,$m:7px) {
+  background: $theme;
+  width:$w;
+  height:$h;
+  margin:$m;
+  border-color:color.scale($theme,$lightness:-30%);
+  border-style:dot-dash;
+  padding:5px;
+}
+
+.default-msg-card{
+  @include msg-card;
+}
+
+.large-msg-card{
+  @include msg-card($theme: #5499c7, $w:250px,$h:100px,$m:10px);
+}
+
+//Inheritance
+%main-alert-msg{
+  border:2px solid gray;
+  font-style:bold;
+  padding:10px;
+  text-align:center;
+}
+
+.error-msg{
+  @extend %main-alert-msg;
+  color:red;
+}
+.success-msg{
+  @extend %main-alert-msg;
+  color:lightgreen;
+}
+
+
