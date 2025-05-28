@@ -1,0 +1,9 @@
+Task 01 create a page to search the books by name.
+Task 02 create a page to display all available books.
+Task 03 add a link to view the author's details along with the book table.
+Task 04 create a page to display all users and a link to view the books borrowed by them.
+Task 05 add a new column to show the count of books borrowed by the user.
+
+select title,genre,published_year,name,birth_year from books as b 
+inner join book_authors as ba on b.book_id = ba.book_id
+inner join authors as a on a.author_id = ba.author_id;

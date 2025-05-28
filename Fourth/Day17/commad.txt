@@ -1,0 +1,5 @@
+mysql -u root -p icae02 < C:/xampp/htdocs/parkinglog.sql
+
+
+<!--path-->
+C:\xampp\php\ext\php_mysqli.dll
